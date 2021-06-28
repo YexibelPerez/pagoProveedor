@@ -1,7 +1,7 @@
 <template class="table">
-  <section>
+  <section class=" col-12 col-md-6">
     <table class="table table-hover">
-      <thead class="table-header">
+      <thead class="table-header bg-table text-white">
         <tr>
           <th scope="col">Pago</th>
           <th scope="col">Porcentaje</th>
@@ -11,21 +11,13 @@
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td><strong>Pago Nro1</strong><br /><small>2021-06-18</small></td>
-          <td>50%</td>
-          <td>AWG</td>
-          <td>10000</td>
-          <td>7000</td>
-          <td>USD</td>
-        </tr>
-        <tr>
-          <td><strong>Pago Nro2</strong> <br /><small>2021-06-05</small></td>
-          <td>50%</td>
-          <td>AWG</td>
-          <td>10000</td>
-          <td>5555</td>
-          <td>EURO</td>
+          <tr v-for="value in dataTable" v-bind:item="value" v-bind:index="index" v-bind:key="value.pago" v-bind:value="index">
+          <td><strong>{{value.pago}}</strong> <br /><small>{{value.fecha}}</small></td>
+          <td>{{value.porcentaje}}</td>
+          <td>{{value.moneda}}</td>
+          <td>{{value.monto}}</td>
+          <td>{{value.montoCambio}}</td>
+          <td>{{value.monedaCambio}}</td>
         </tr>
       </tbody>
     </table>
@@ -35,7 +27,15 @@
 <script>
 export default {
   name: "Table",
+
+  updated(){
+    if(this.dataTable){
+      return true
+    }
+  },
+  props:['dataTable']
 };
+
 </script>
 
 <style>

@@ -1,44 +1,34 @@
+@mixin title($mg-top, $align, $font-size, $color) {
+    margin-top: $mg-top;
+    text-align: $align;
+    font-size: $font-size;
+    color: $color;
+}
+
 *{
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
+    font-family: sans-serif;
 }
-
-.container{
-    width: 100%;
-    margin: 0 auto;
-    height: 80vh;
-    display: grid;
-    grid-template-columns: repeat(1, 2fr);
-    gap: 1em;
-    align-content: center;
-    border: 1px solid #f1c;
-    
-    .title{
-        text-align: center;
-        grid-column: 1 / 4;
-        font-size: 15px;
-        border: 1px solid yellowgreen;
-        .hr{
-            border: 3px solid rgb(37, 1, 66);
-            width: 150px;
-            margin: auto;
-            margin-top: 10px;
-        }
+    .title-prin{
+        @include title(30px, center, 15px, rgb(85, 84, 84));
     }
 
-    .columns{
-        border: 1px solid blue;
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        padding-bottom: 20px;
+    .hr{
+        background-color: rgb(0, 21, 255);
+        width: 150px;
+        margin: auto;
+        margin-bottom: 30px;
     }
-    
-    .table{
-        border: 1px solid yellow;
-        .table-header{
-            background: rgb(34, 56, 116);
-            color: white;
-        }   
+
+    .title-secun{
+        @include title(30px, left, 18px, black);
     }
-}
+
+    .gris{
+        color: rgb(167, 167, 167);
+    }
+
+    .bg-table{
+        background: rgb(34, 56, 116);
+    }
