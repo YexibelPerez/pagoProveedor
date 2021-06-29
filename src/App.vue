@@ -1,15 +1,12 @@
 <template>
   <div id="app" class="container">
-    <Monto @data='dataMonto = $event' />
+    <Monto />
     <h1 class="title-prin text-center">Pago Proveedor</h1>
     <hr class="hr p-1" />
-    <!--<HelloWorld msg="Welcome to Your Vue.js App"/>-->
+ 
     <div class="container row">
-      <!--<router-link to="/Monto">Monto Total</router-link>
-      <router-link to="/Pagos">Monto Total</router-link>-->
-      
-      <Form :montoData="dataMonto" @tabla="dataTable = $event" />
-      <Table :dataTable="dataTable" />
+      <Form  />
+      <Table  />
       
     </div>
   </div>
@@ -29,10 +26,6 @@ export default {
     Form,
     Table,
   },
-   data: () => ({
-    dataMonto:{},
-    dataTable:[]
-  }),
   updated(){
     console.log(this.dataTable)
   }
